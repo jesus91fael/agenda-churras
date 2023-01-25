@@ -1,0 +1,86 @@
+{
+  "meet": [
+    {
+      "id": 1,
+      "title": "Niver Gui",
+      "price": 300.00,
+      "group":[
+        {
+          "id": 1,
+          "name": "Alice",
+          "value": 20.00,
+          "check": true
+        },
+        {
+          "id": 2,
+          "name": "Paulo",
+          "value": 20.00,
+          "check": true
+        }
+      ]
+    }
+    
+  ],
+  "names": [
+    {
+      "id": 1,
+      "name": "Alice"
+    },
+    {
+      "id": 2,
+      "name": "Beto"
+    },
+    {
+      "id": 3,
+      "name": "Diego B."
+    },
+    {
+      "id": 4,
+      "name": "Diego P."
+    },
+    {
+      "id": 5,
+      "name": "Fernando"
+    },
+    {
+      "id": 6,
+      "name": "Gabriel"
+    },
+    {
+      "id": 7,
+      "name": "Leonardo"
+    },
+    {
+      "id": 8,
+      "name": "Marcus J."
+    },
+    {
+      "id": 9,
+      "name": "Michele"
+    },
+    {
+      "id": 10,
+      "name": "Paulo"
+    },
+    {
+      "id": 11,
+      "name": "rafael S."
+    },
+    {
+      "id": 12,
+      "name": "Ralf"
+    },
+    {
+      "id": 13,
+      "name": "Ruan"
+    },
+    {
+      "id": 14,
+      "name": "Thales"
+    },
+    {
+      "id": 15,
+      "name": "Wait"
+    }
+  ]
+}
