@@ -3,7 +3,48 @@
     {
       "id": 1,
       "title": "Niver Gui",
+      "date": "25/04",
       "price": 300.00,
+      "group":[
+        {
+          "id": 1,
+          "name": "Alice",
+          "value": 20.00,
+          "check": true
+        },
+        {
+          "id": 2,
+          "name": "Paulo",
+          "value": 20.00,
+          "check": true
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "title": "Niver João",
+      "date": "01/09",
+      "price": 400.00,
+      "group":[
+        {
+          "id": 1,
+          "name": "Alice",
+          "value": 20.00,
+          "check": true
+        },
+        {
+          "id": 2,
+          "name": "Paulo",
+          "value": 20.00,
+          "check": true
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "title": "Niver Paula",
+      "date": "2002/03",
+      "price": 100.00,
       "group":[
         {
           "id": 1,
