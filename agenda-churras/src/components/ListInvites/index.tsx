@@ -13,7 +13,7 @@ const ListInvites = (props: ListInviteProps) => {
   return (
     <ContentListStyled>
       <CardStyled>
-        <LabelStyled>{props.name}</LabelStyled>
+        <LabelStyled>{props?.name}</LabelStyled>
         <LabelStyled>R${props.valor}</LabelStyled>
         {props.onDelete ? (
           <ButtonStyled variant="danger" onClick={props.onDelete}>

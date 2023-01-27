@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react"
 import Header from "../../components/Header"
 import { Link, useParams } from "react-router-dom"
 import { ReactComponent as IconArrow } from "../../assets/seta-esquerda.svg"
+import { ReactComponent as PencilIcon } from "../../assets/pencil.svg"
 import ListInvites from "../../components/ListInvites"
 import {
   CardStyled,
@@ -26,7 +27,7 @@ const RegisterEvent = () => {
   let result: any = meet.find(
     (element: any) => parseInt(`${element.id}`) === parseInt(`${id}`)
   )
-  console.log("result", result)
+  
   const dateFormated = result?.date.split("-").reverse().join("/")
   return (
     <>
@@ -36,6 +37,11 @@ const RegisterEvent = () => {
           <Link to="/">
             <Button variant="light">
               <IconArrow />
+            </Button>
+          </Link>
+          <Link to={`/editar-evento/${id}`}>
+            <Button variant="light">
+              <PencilIcon/>
             </Button>
           </Link>
         </ContentArrowStyled>

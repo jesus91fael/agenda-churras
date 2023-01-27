@@ -68,8 +68,8 @@ export const BoxButtonStyled = styled.div`
   width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
-  align-items: flex-end;
+  justify-content: center;
+  align-items: center;
   padding: 0 10px;
 `
 

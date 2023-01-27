@@ -1,70 +1,36 @@
 {
   "meet": [
     {
-      "title": "Nive GI",
-      "date": "",
-      "group": [
-        {}
-      ],
-      "id": 1
-    },
-    {
-      "id": 2,
-      "title": "Niver João",
-      "date": "2023-02-01",
-      "price": 400,
-      "group": [
-        {
-          "id": 1,
-          "name": "Alice",
-          "valor": 20
-        },
-        {
-          "id": 2,
-          "name": "Paulo",
-          "valor": 20
-        }
-      ]
-    },
-    {
       "title": "Niver Tião",
       "date": "2023-02-08",
       "group": [
         {},
         {
-          "valor": "10",
+          "valor": 10,
           "name": "Zé"
         },
         {
-          "valor": "12",
+          "valor": 12,
           "name": "maria"
         }
       ],
-      "id": 3
+      "id": 1
     },
     {
-      "title": "Niver",
-      "date": "2023-02-07",
+      "title": "Niver Maria J.",
+      "date": "2023-02-08",
       "group": [
         {},
         {
-          "valor": "12",
-          "name": "RAFAEL JESUS DO PRADO"
-        }
-      ],
-      "id": 4
-    },
-    {
-      "title": "Rafa",
-      "date": "2023-01-31",
-      "group": [
-        {},
+          "valor": 10,
+          "name": "Zé"
+        },
         {
-          "valor": "12",
-          "name": "res"
+          "valor": 12,
+          "name": "maria"
         }
       ],
-      "id": 5
+      "id": 2
     }
   ]
 }

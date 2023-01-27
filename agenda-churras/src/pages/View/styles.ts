@@ -18,7 +18,8 @@ export const ContentArrowStyled = styled.div`
   display: flex ;
   background-color: #fff;
   padding: 0;
-  justify-content: flex-start ;
+  margin: 0 auto;
+  justify-content: space-around;
 `
 
 export const FormStyled = styled.form`

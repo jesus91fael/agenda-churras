@@ -27,17 +27,16 @@ interface teste  {
   id: number
   title: string
   date?: Date
-  group: Array<[]>
+  group: []
 }
 const EditEvent = () => {
 
   const navigate = useNavigate()
+  const [people, setPeople] = useState<teste>()
 
   const [title, setTitle] = useState("")
   const [date, setDate] = useState("")
   const [group, setGroup] = useState([{}])
-
-  const [people, setPeople] = useState<teste>()
 
   const addNewInvite = (value: object) => {
     const itemsGroup = Array.from(group)
@@ -55,13 +54,12 @@ const EditEvent = () => {
 
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
+
   const newMeet = {
     title: title,
     date: date,
     group: group,
   }
-
- 
 
     let { id } = useParams()
 
@@ -75,7 +73,6 @@ const EditEvent = () => {
       })
     },[url])
    
-console.log('pessoa', people?.title)
   const valida = () => adicionarMeet(newMeet)
 
   const adicionarMeet = (xMeet: object) => {
@@ -92,6 +89,7 @@ console.log('pessoa', people?.title)
         navigate('/');       
       })
   }
+  const transformDate = people?.date?.toString()
 
   return (
     <>
@@ -113,15 +111,17 @@ console.log('pessoa', people?.title)
                 type="date"
                 id="text"
                 onChange={(e) => setDate(e.target.value)}
+                defaultValue={transformDate}
               />
             </LabelForm>
             <LabelForm>
               Título:
               <InputStyledTitle
                 type="text"
+                
                 id="title"
                 onChange={(e) => setTitle(e.target.value)}
-                placeholder={people?.title}
+                defaultValue={people?.title}
 
               />
             </LabelForm>
@@ -139,15 +139,25 @@ console.log('pessoa', people?.title)
               </Button>
             </BoxButtonStyled>
             <CardStyled>
+              {group &&
+                group.map((element: any, index: any) => {
+                  return (
+                    <ListInvites
+                      key={index}
+                      name={element?.name}
+                      valor={element?.valor}
+                      onDelete={() => deleteInvite(index)}
+                    />
+                  )
+                })}
               {people?.group &&
                 people?.group.map((element: any, index: any) => {
                   return (
                     <ListInvites
                       key={index}
-                      name={element?.value?.name}
-                      valor={element?.value?.valor}
+                      name={element?.name}
+                      valor={element?.valor}
                       onDelete={() => deleteInvite(index)}
-                      onChange={() => console.log("ola")}
                     />
                   )
                 })}

@@ -121,10 +121,9 @@ const RegisterEvent = () => {
                   return (
                     <ListInvites
                       key={index}
-                      name={element?.value?.name}
-                      valor={element?.value?.valor}
+                      name={element?.name}
+                      valor={element?.valor}
                       onDelete={() => deleteInvite(index)}
-                      onChange={() => console.log("ola")}
                     />
                   )
                 })}
