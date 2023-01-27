@@ -1,5 +1,12 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
+import Button from "react-bootstrap/Button"
 
+export const ContentListStyled = styled.div`
+  display: flex ;
+  flex-direction: column ;
+  justify-content: center;
+  align-items: center ;
+`
 
 export const CardStyled = styled.div`
   background-color: #FFF;
@@ -8,33 +15,26 @@ export const CardStyled = styled.div`
   flex-direction: row ;
   justify-content: center;
   align-items: center ;
-  padding: 5px 0;
-`;
+`
 
 export const LabelStyled = styled.label`
-  border-bottom: 1px solid #E5C231;
-  padding-bottom: 10px;
+  width: 100px;
   display: flex;
   align-items: center ;
-  justify-content: center;
+  justify-content: flex-start;
   flex-direction: row ;
-`;
+  margin: 0 90px;
+`
 
-export const InputStyled = styled.input`
-  border: none;
-  margin: 3px;
-`;
-
-export const ButtonStyled = styled.button`
+export const ButtonStyled = styled(Button)`
   border: none;
   margin: 3px;
   padding: 5px;
   color: #fff;
   border-radius: 5px ;
-  background-color: #998220;
-  cursor: pointer;
-  &:hover{
-  background-color: rgb(229, 194, 49, 0.3);  ;
-  color: #000;
-  }
-`;
+`
+
+export const LineStyled = styled.hr`
+  width: 488px ;
+  align-items:center ;
+`

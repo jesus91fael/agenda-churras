@@ -16,20 +16,20 @@ export const TitleStyled = styled.div`
   font-weight: 700 ;
 `;
 
-export const CountInviteStyled = styled.div`
-  display: flex ;
-  flex-direction: row;
-  align-items:center ;
-  justify-content: space-between ;
-  margin-right: 91px ;
-`;
-
 export const GroupStyled = styled.div`
   display: flex ;
   flex-direction: row;
   align-items:center ;
   justify-content: space-between ;
   margin-top: 48px ;
+`;
+
+export const CountInviteStyled = styled.div`
+  display: flex ;
+  flex-direction: row;
+  align-items:center ;
+  justify-content: space-between ;
+  margin-right: 91px ;
 `;
 
 export const ValueStyled = styled.span`

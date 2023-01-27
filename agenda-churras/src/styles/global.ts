@@ -7,4 +7,6 @@ export default createGlobalStyle`
     outline: 0;
     box-sizing: border-box;
     font-family: Raleway ;
+    text-decoration: none;
+    color: #000;
   }`

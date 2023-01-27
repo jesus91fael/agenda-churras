@@ -1,55 +1,66 @@
-import React, { useState } from "react";
-import { NewInviteProps } from "./interface";
+import React, { useState } from "react"
+import { NewInviteProps } from "./interface"
+import Modal from "react-bootstrap/Modal"
+import Button from "react-bootstrap/Button"
+
 import {
-  ButtonStyled,
   FormStyled,
   InputStyled,
   InputValueStyled,
   LabelStyled,
-} from "./styles";
+} from "./styles"
 
-const NewInvite = ({ onSubmit }: NewInviteProps) => {
+const NewInvite = ({ onSubmit, handleClose, show }: NewInviteProps) => {
   const [value, setValue] = useState("");
   const [name, setName] = useState("");
-  const [pago, setPago] = useState("");
 
   const setNewDados = {
     valor: value,
     name: name,
-    pago: pago,
-  };
+  }
 
-  const handleChange = () => onSubmit(setNewDados);
+  const handleChange = () => onSubmit(setNewDados)
+
+  const insertDados = () => {
+    handleChange()
+    handleClose()
+  }
 
   return (
-    <FormStyled>
-      <LabelStyled>
-        Pago:
-        <InputStyled
-          type="checkbox"
-          id="pago"
-          onChange={(e) => setPago(e.target.value)}
-        />
-      </LabelStyled>
-      <LabelStyled>
-        Nome:
-        <InputStyled
-          type="text"
-          id="name"
-          onChange={(e) => setName(e.target.value)}
-        />
-      </LabelStyled>
-      <LabelStyled>
-        Valor:
-        <InputValueStyled
-          type="numeric"
-          id="value"
-          onChange={(e) => setValue(e.target.value)}
-        />
-      </LabelStyled>
-      <ButtonStyled onClick={handleChange}>Inserir</ButtonStyled>
-    </FormStyled>
-  );
-};
+    <Modal show={show} onHide={handleClose}>
+      <Modal.Header closeButton>
+        <Modal.Title>Cadastrar pessoa</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        <FormStyled>
+          <LabelStyled>
+            Nome:
+            <InputStyled
+              type="text"
+              id="name"
+              onChange={(e) => setName(e.target.value)}
+            />
+          </LabelStyled>
+          <LabelStyled>
+            Valor:
+            <InputValueStyled
+              type="number"
+              id="value"
+              onChange={(e) => setValue(e.target.value)}
+            />
+          </LabelStyled>
+        </FormStyled>
+      </Modal.Body>
+      <Modal.Footer>
+        <Button variant="secondary" onClick={handleClose}>
+          Cancelar
+        </Button>
+        <Button variant="primary" onClick={insertDados}>
+          Salvar
+        </Button>
+      </Modal.Footer>
+    </Modal>
+  )
+}
 
-export default NewInvite;
+export default NewInvite

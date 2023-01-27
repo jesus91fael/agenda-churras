@@ -1,13 +1,18 @@
 import React from "react"
-import { ReactComponent as UsersIcon} from "../../assets/icon_users.svg"
-import { ReactComponent as DolarIcon} from "../../assets/icon_dolar.svg"
+import { ReactComponent as UsersIcon } from "../../assets/icon_users.svg"
+import { ReactComponent as DolarIcon } from "../../assets/icon_dolar.svg"
 import { ContentCardEventProps } from "./interface"
-import { CashStyled, ContentStyled, CountInviteStyled, DateStyled, GroupStyled, TitleStyled, ValueStyled } from "./styles"
+import {
+  CashStyled,
+  ContentStyled,
+  CountInviteStyled,
+  DateStyled,
+  GroupStyled,
+  TitleStyled,
+  ValueStyled,
+} from "./styles"
 
 const ContentCardEvent = (props: ContentCardEventProps) => {
-
-
-  
   return (
     <ContentStyled>
       <DateStyled>{props?.date}</DateStyled>
@@ -19,7 +24,7 @@ const ContentCardEvent = (props: ContentCardEventProps) => {
         </CountInviteStyled>
         <CashStyled>
           <DolarIcon />
-          <ValueStyled>R${props.price}</ValueStyled>
+          <ValueStyled>R${props.price ? props.price : ""}</ValueStyled>
         </CashStyled>
       </GroupStyled>
     </ContentStyled>

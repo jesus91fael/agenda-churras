@@ -1,6 +1,6 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import Header from "../../components/Header"
-import { Link, useNavigate } from "react-router-dom"
+import { Link, useNavigate, useParams } from "react-router-dom"
 import { ReactComponent as IconUser } from "../../assets/group.svg"
 import { ReactComponent as IconArrow } from "../../assets/seta-esquerda.svg"
 import Button from "react-bootstrap/Button"
@@ -23,13 +23,21 @@ import {
   ContentArrowStyled,
 } from "./styles"
 
-const RegisterEvent = () => {
+interface teste  {
+  id: number
+  title: string
+  date?: Date
+  group: Array<[]>
+}
+const EditEvent = () => {
 
   const navigate = useNavigate()
 
   const [title, setTitle] = useState("")
   const [date, setDate] = useState("")
   const [group, setGroup] = useState([{}])
+
+  const [people, setPeople] = useState<teste>()
 
   const addNewInvite = (value: object) => {
     const itemsGroup = Array.from(group)
@@ -53,17 +61,32 @@ const RegisterEvent = () => {
     group: group,
   }
 
+ 
+
+    let { id } = useParams()
+
+    let url = `http://localhost:3000/meet/${id}`
+
+    useEffect(() =>{
+      fetch(url)
+      .then((response: any) => response.json())
+      .then((data) => {
+        setPeople(data)
+      })
+    },[url])
+   
+console.log('pessoa', people?.title)
   const valida = () => adicionarMeet(newMeet)
 
   const adicionarMeet = (xMeet: object) => {
     let options = {
-      method: "POST",
+      method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(xMeet),
     }
-    return fetch("http://localhost:3000/meet", options)
+    return fetch(`http://localhost:3000/meet/${id}`, options)
       .then((response: any) => response.json())
       .then(() => {        
         navigate('/');       
@@ -80,8 +103,7 @@ const RegisterEvent = () => {
               <IconArrow />
             </Button>
           </Link>
-        </ContentArrowStyled>
-
+        </ContentArrowStyled>      
         <FormStyled onSubmit={valida}>
           <SubTitleStyled>Cadastrar Evento</SubTitleStyled>
           <FormContentStyled>
@@ -96,10 +118,11 @@ const RegisterEvent = () => {
             <LabelForm>
               Título:
               <InputStyledTitle
-                placeholder="Digite um título"
                 type="text"
                 id="title"
                 onChange={(e) => setTitle(e.target.value)}
+                placeholder={people?.title}
+
               />
             </LabelForm>
           </FormContentStyled>
@@ -116,8 +139,8 @@ const RegisterEvent = () => {
               </Button>
             </BoxButtonStyled>
             <CardStyled>
-              {group &&
-                group.map((element: any, index: any) => {
+              {people?.group &&
+                people?.group.map((element: any, index: any) => {
                   return (
                     <ListInvites
                       key={index}
@@ -146,4 +169,4 @@ const RegisterEvent = () => {
   )
 }
 
-export default RegisterEvent
+export default EditEvent

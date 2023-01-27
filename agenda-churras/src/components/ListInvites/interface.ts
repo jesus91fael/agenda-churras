@@ -1,7 +1,6 @@
 export interface ListInviteProps{
   onChange?: () => void
-  onDelete: () => void
-  pago: string
+  onDelete?: () => void
   name: string
-  valor: string
+  valor: number
 }
