@@ -37,6 +37,7 @@ export const ValueStyled = styled.span`
   flex-direction: row;
   align-items:center ;
   justify-content: space-between ;
+  margin-left: 11px ;
 `;
 
 export const CashStyled = styled.div`

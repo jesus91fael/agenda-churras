@@ -7,6 +7,7 @@ import { CashStyled, ContentStyled, CountInviteStyled, DateStyled, GroupStyled, 
 const ContentCardEvent = (props: ContentCardEventProps) => {
 
 
+  
   return (
     <ContentStyled>
       <DateStyled>{props?.date}</DateStyled>
@@ -14,11 +15,11 @@ const ContentCardEvent = (props: ContentCardEventProps) => {
       <GroupStyled>
         <CountInviteStyled>
           <UsersIcon />
-          {props.users}
+          <ValueStyled>{props.users}</ValueStyled>
         </CountInviteStyled>
         <CashStyled>
           <DolarIcon />
-          R$<ValueStyled>{props.price}</ValueStyled>
+          <ValueStyled>R${props.price}</ValueStyled>
         </CashStyled>
       </GroupStyled>
     </ContentStyled>

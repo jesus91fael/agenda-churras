@@ -7,10 +7,11 @@ export const DivStyled = styled.div`
   border-radius: 2px;
   cursor: pointer;
   margin: 12px;
-  margin-top: 24px;
+  margin-top: 12px;
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: #FFF;
 `;

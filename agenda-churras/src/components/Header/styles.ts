@@ -1,22 +1,21 @@
 import styled from 'styled-components';
+import bg from '../../assets/bbq_pattern.svg'
 
 
 export const HeaderStyled = styled.header`
-  width: 636px;
+  width: 100%;
   height: 203px ;
-  position: relative;
   margin: 0 auto;
   background-color: #FFD836;
+  
   display: flex ;
   justify-content: center;
 `;
 
 export const BackImagestyled = styled.div`
-  width: 636px;
+  width: 100%;
   height: 203px ;
-  background-image: url('../../assets/bbq_pattern.svg');
-  position: relative;
-  margin: 0 auto;
+  background-image: url(${bg});
   display: flex ;
   justify-content: center;
 `;
