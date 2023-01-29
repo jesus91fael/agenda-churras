@@ -35,7 +35,6 @@ const EditEvent = () => {
   useEffect(() => {
     setGroup(people?.group as [])
   }, [people?.group]);
-  console.log("group", group)
 
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
