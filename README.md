@@ -1,17 +1,17 @@
 # Autor.: Rafael Jesus do Prado
 
 ## Para executar o programa
-## Primeiro você entra na pasta do server e "roda" o seguinte comando
+### Passo 1: entre na pasta do server e "roda" o seguinte comando:
 
-json-server --watch db.json
+`json-server --watch db.json`
 
-## Depois em outro terminal entra na pasta "agenda-churas","rode" o seguinte comando
+### Passo 2: em outro terminal entra na pasta "agenda-churas","rode" o seguinte comando:
 
-yarn
+`yarn`
 
-## Depois que instalar "rode" o seguinte comando
+### Passo 3: depois que instalar "rode" o seguinte comando:
 
-yarn start
+`yarn start`
 
 ## Tecnologias utilizadas
 - React Js
