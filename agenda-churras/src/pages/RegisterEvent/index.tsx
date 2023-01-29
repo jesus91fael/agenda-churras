@@ -33,7 +33,7 @@ const RegisterEvent = () => {
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
 
-  const addNewInvite = (value: any) => {
+  const addNewInvite = (value: object) => {
     setGroup((prevState) => [...prevState, value])
   }
 

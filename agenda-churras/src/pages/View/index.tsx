@@ -59,7 +59,7 @@ const RegisterEvent = () => {
             </SubTitleStyled>
             <ItemList>
               {result.group &&
-                result.group.map((elementGroup: any, index: any) => {
+                result.group.map((elementGroup: any, index: number) => {
                   return (
                     <ListInvites
                       key={index}
