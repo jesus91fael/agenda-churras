@@ -7,6 +7,7 @@ export const ContentListStyled = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
+  
 `
 
 export const CardStyled = styled.div`
@@ -19,10 +20,23 @@ export const CardStyled = styled.div`
 `
 
 export const LabelStyled = styled.label`
+  width: 33% ;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: flex-start;
   flex-direction: row;
+ 
+`
+
+export const ItemListStyled = styled.label`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 70%;
+  @media (max-width: 400px) {
+    flex-direction: column;
+
+  }
 `
 
 export const ButtonStyled = styled(Button)`

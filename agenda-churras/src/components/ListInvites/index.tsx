@@ -4,6 +4,7 @@ import {
   ButtonStyled,
   CardStyled,
   ContentListStyled,
+  ItemListStyled,
   LabelStyled,
   LineStyled,
 } from "./styles"
@@ -13,12 +14,16 @@ const ListInvites = (props: ListInviteProps) => {
   return (
     <ContentListStyled>
       <CardStyled>
-        {props?.name ? <LabelStyled>{props?.name}</LabelStyled> : ""}
-        {props.valor ? <LabelStyled>R$ {props.valor}</LabelStyled> : ""}
+        <ItemListStyled>
+          {props?.name ? <LabelStyled>{props?.name}</LabelStyled> : ""}
+          {props.valor ? <LabelStyled>R$ {props.valor}</LabelStyled> : ""}
+        </ItemListStyled>
         {props.onDelete ? (
+          
           <ButtonStyled variant="danger" onClick={props.onDelete}>
             <IconTrash />
           </ButtonStyled>
+          
         ) : (
           ""
         )}

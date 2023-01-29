@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react"
-import Header from "../../components/Header"
-import { Link, useNavigate, useParams } from "react-router-dom"
-import { ReactComponent as IconUser } from "../../assets/group.svg"
-import { ReactComponent as IconArrow } from "../../assets/seta-esquerda.svg"
+import React, { useEffect, useState } from "react";
+import Header from "../../components/Header";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import { ReactComponent as IconUser } from "../../assets/group.svg";
+import { ReactComponent as IconArrow } from "../../assets/seta-esquerda.svg";
 import Button from "react-bootstrap/Button";
-import NewInvite from "../../components/NewInvite"
-import ListInvites from "../../components/ListInvites"
+import NewInvite from "../../components/NewInvite";
+import ListInvites from "../../components/ListInvites";
 import {
   BoxButtonStyled,
   BoxStyled,
@@ -19,39 +19,38 @@ import {
   InsertMeetStyled,
   LabelForm,
   SubTitleStyled,
-  ContentArrowStyled,
   FormControlStyled,
 } from "./styles";
-import { useForm } from "react-hook-form"
-import { PeopleProps } from "./interface"
+import { useForm } from "react-hook-form";
+import { PeopleProps } from "./interface";
 
 const EditEvent = () => {
   const navigate = useNavigate();
-  const [people, setPeople] = useState<PeopleProps>()
-  const [group, setGroup] = useState<any[]>([])
+  const [people, setPeople] = useState<PeopleProps>();
+  const [group, setGroup] = useState<any[]>([]);
 
-  const [show, setShow] = useState(false)
+  const [show, setShow] = useState(false);
 
   useEffect(() => {
-    setGroup(people?.group as [])
+    setGroup(people?.group as []);
   }, [people?.group]);
 
-  const handleClose = () => setShow(false)
-  const handleShow = () => setShow(true)
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   const addNewInvite = (value: object) => {
-    setGroup((prevState) => [...prevState, value])
+    setGroup((prevState) => [...prevState, value]);
   };
 
   const deleteInvite = (index: number) => {
     setGroup((prevState) =>
       prevState.filter((_, prevStateIndex) => prevStateIndex !== index)
-    )
+    );
   };
 
-  let { id } = useParams()
+  let { id } = useParams();
 
-  let url = `http://localhost:3000/meet/${id}`
+  let url = `http://localhost:3000/meet/${id}`;
 
   useEffect(() => {
     fetch(url)
@@ -59,7 +58,7 @@ const EditEvent = () => {
       .then((data) => {
         setPeople(data);
       });
-  }, [url])
+  }, [url]);
 
   const adicionarMeet = (xMeet: object) => {
     let options = {
@@ -72,43 +71,41 @@ const EditEvent = () => {
     return fetch(`http://localhost:3000/meet/${id}`, options)
       .then((response: any) => response.json())
       .then(() => {
-        navigate("/")
-      })
-  }
+        navigate("/");
+      });
+  };
 
-  const { register, handleSubmit } = useForm()
+  const { register, handleSubmit } = useForm();
 
   const onSubmit = (e: any) => {
     const values = {
       title: e.title ? e.title : people?.title,
       date: e.date ? e.date : transformDate,
       group: group,
-    }
-    adicionarMeet(values)
-  }
-  const transformDate = people?.date?.toString()
-console.log('group', people?.group)
+    };
+    adicionarMeet(values);
+  };
+  const transformDate = people?.date?.toString();
+  console.log("group", people?.group);
   return (
     <>
       <Header />
       <ContentStyled>
-        <ContentArrowStyled>
-          <Link to="/">
-            <Button variant="light">
-              <IconArrow />
-            </Button>
-          </Link>
-        </ContentArrowStyled>
+        <Link to="/">
+          <Button variant="light">
+            <IconArrow />
+          </Button>
+        </Link>
         <SubTitleStyled>Editar Evento</SubTitleStyled>
         <FormStyled onSubmit={handleSubmit(onSubmit)}>
-          <FormContentStyled>          
+          <FormContentStyled>
             <FormControlStyled>
               <LabelForm>Data:</LabelForm>
               <InputStyled
                 type="date"
                 id="date"
                 {...register("date")}
-                required          
+                required
                 defaultValue={transformDate}
               />
             </FormControlStyled>
@@ -136,17 +133,17 @@ console.log('group', people?.group)
                 <IconUser />
               </Button>
             </BoxButtonStyled>
-              {group &&
-                group.map((element: any, index: number) => {
-                  return (
-                    <ListInvites
-                      key={index}
-                      name={element?.name}
-                      valor={element?.valor}
-                      onDelete={() => deleteInvite(index)}
-                    />
-                  )
-                })}
+            {group &&
+              group.map((element: any, index: number) => {
+                return (
+                  <ListInvites
+                    key={index}
+                    name={element?.name}
+                    valor={element?.valor}
+                    onDelete={() => deleteInvite(index)}
+                  />
+                );
+              })}
           </BoxStyled>
           <InsertMeetStyled>
             <Link to="/">
@@ -161,7 +158,7 @@ console.log('group', people?.group)
         </FormStyled>
       </ContentStyled>
     </>
-  )
-}
+  );
+};
 
-export default EditEvent
+export default EditEvent;

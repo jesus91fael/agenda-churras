@@ -10,6 +10,13 @@ export const ContentStyled = styled.div`
   border-radius: 2px;
   margin: 0 auto;
   padding: 12px;
+
+  @media (max-width: 700px) {
+    width: 400px;
+  }
+  @media (max-width: 400px) {
+    width: 200px;
+  }
 `
 
 export const SubTitleStyled = styled.h3`
@@ -102,4 +109,9 @@ export const FormContentStyled = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-start;
+  @media (max-width: 400px) {
+    flex-direction: column;
+    align-items: center;
+
+  }
 `

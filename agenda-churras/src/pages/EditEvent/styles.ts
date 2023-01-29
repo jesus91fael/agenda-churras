@@ -5,21 +5,19 @@ export const ContentStyled = styled.div`
   width: 600px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid rgb(229, 194, 49, 0.3);
+  box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.06);
   background-color: #fff;
   border-radius: 2px;
   margin: 0 auto;
-  padding: 10px;
-`
-
-export const ContentArrowStyled = styled.div`
-  width: 100%;
-  display: flex ;
-  background-color: #fff;
-  padding: 0;
-  justify-content: flex-start ;
+  padding: 12px;
+  
+  @media (max-width: 700px) {
+    width: 400px;
+  }
+  @media (max-width: 400px) {
+    width: 200px;
+  }
+  
 `
 
 export const FormStyled = styled.form`
@@ -37,7 +35,8 @@ export const FormControlStyled = styled.div`
 
 export const SubTitleStyled = styled.h3`
   font-weight: 800;
-  padding: 25px 0;
+  text-align: center;
+  padding: 12px 0;
 `
 
 export const LabelForm = styled.label`
@@ -45,7 +44,6 @@ export const LabelForm = styled.label`
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  margin: 20px 50px;
 `
 
 export const InputStyled = styled.input`
@@ -62,7 +60,7 @@ export const InputStyledTitle = styled.input`
 `
 
 export const BoxStyled = styled.div`
-  width: 588px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -110,8 +108,15 @@ export const ButtonStyled = styled(Button)`
 `
 
 export const FormContentStyled = styled.div`
+  width: 100%;
+  gap: 24px;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   align-items: flex-start;
+  @media (max-width: 400px) {
+    flex-direction: column;
+    align-items: center;
+
+  }
 `
