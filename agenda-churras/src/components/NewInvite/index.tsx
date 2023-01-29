@@ -4,6 +4,7 @@ import Modal from "react-bootstrap/Modal"
 import Button from "react-bootstrap/Button"
 
 import {
+  FormControlStyled,
   FormStyled,
   InputStyled,
   InputValueStyled,
@@ -11,8 +12,8 @@ import {
 } from "./styles"
 
 const NewInvite = ({ onSubmit, handleClose, show }: NewInviteProps) => {
-  const [value, setValue] = useState("");
-  const [name, setName] = useState("");
+  const [value, setValue] = useState("")
+  const [name, setName] = useState("")
 
   const setNewDados = {
     valor: value,
@@ -33,22 +34,24 @@ const NewInvite = ({ onSubmit, handleClose, show }: NewInviteProps) => {
       </Modal.Header>
       <Modal.Body>
         <FormStyled>
-          <LabelStyled>
-            Nome:
+          <FormControlStyled>
+            <LabelStyled>Nome:</LabelStyled>
             <InputStyled
               type="text"
               id="name"
               onChange={(e) => setName(e.target.value)}
+              required
             />
-          </LabelStyled>
-          <LabelStyled>
-            Valor:
+          </FormControlStyled>
+          <FormControlStyled>
+            <LabelStyled>Valor:</LabelStyled>
             <InputValueStyled
               type="number"
               id="value"
               onChange={(e) => setValue(e.target.value)}
+              required
             />
-          </LabelStyled>
+          </FormControlStyled>
         </FormStyled>
       </Modal.Body>
       <Modal.Footer>

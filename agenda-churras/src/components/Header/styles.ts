@@ -3,21 +3,17 @@ import bg from '../../assets/bbq_pattern.svg'
 
 export const HeaderStyled = styled.header`
   width: 100%;
-  height: 203px ;
-  margin: 0 auto;
+  height: 200px;
+  margin: 0 auto -50px auto;
   background-color: #FFD836;
-  display: flex ;
-  justify-content: center;
-`;
+`
 
-export const BackImagestyled = styled.div`
+export const BackImageStyled = styled.div`
   width: 100%;
-  height: 203px ;
-  background-image: url(${bg});
+  height: 100% ;
   display: flex ;
+  align-items: center;
   justify-content: center;
-`;
-
-export const TitleStyled = styled.h1`
-  margin-top: 70px ;
-`;
+  background-image: url(${bg});
+  background-repeat: repeat;
+`

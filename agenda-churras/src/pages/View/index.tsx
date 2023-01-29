@@ -5,21 +5,22 @@ import { ReactComponent as IconArrow } from "../../assets/seta-esquerda.svg"
 import { ReactComponent as PencilIcon } from "../../assets/pencil.svg"
 import ListInvites from "../../components/ListInvites"
 import {
-  CardStyled,
+  ItemList,
   ContentArrowStyled,
   ContentStyled,
   FormStyled,
   SubTitleStyled,
-} from "./styles";
+} from "./styles"
 import { api } from "../../lib/axios"
 import { Button } from "react-bootstrap"
+import { formattedDate } from "../../utils/date"
 
 const RegisterEvent = () => {
   const [meet, setMeet] = useState([])
 
   useEffect(() => {
     api.get("meet").then((response: any) => {
-      setMeet(response.data);
+      setMeet(response.data)
     })
   }, [])
 
@@ -27,8 +28,7 @@ const RegisterEvent = () => {
   let result: any = meet.find(
     (element: any) => parseInt(`${element.id}`) === parseInt(`${id}`)
   )
-  
-  const dateFormated = result?.date.split("-").reverse().join("/")
+
   return (
     <>
       <Header />
@@ -41,14 +41,14 @@ const RegisterEvent = () => {
           </Link>
           <Link to={`/editar-evento/${id}`}>
             <Button variant="light">
-              <PencilIcon/>
+              <PencilIcon />
             </Button>
           </Link>
         </ContentArrowStyled>
         {result ? (
           <FormStyled>
             <SubTitleStyled>{result.title}</SubTitleStyled>
-            <SubTitleStyled>Data: {dateFormated}</SubTitleStyled>
+            <SubTitleStyled>Data: {formattedDate(result?.date)}</SubTitleStyled>
             <SubTitleStyled>
               Valor Arrecadado: R${" "}
               {parseFloat(
@@ -57,7 +57,7 @@ const RegisterEvent = () => {
                   .reduce((prev: number, curr: number) => prev + curr, 0)
               )}
             </SubTitleStyled>
-            <CardStyled>
+            <ItemList>
               {result.group &&
                 result.group.map((elementGroup: any, index: any) => {
                   return (
@@ -68,10 +68,10 @@ const RegisterEvent = () => {
                     />
                   )
                 })}
-            </CardStyled>
+            </ItemList>
           </FormStyled>
         ) : (
-          ""
+          "Não Foi encontrado nenhum evento"
         )}
       </ContentStyled>
     </>

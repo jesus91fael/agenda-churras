@@ -1,4 +1,4 @@
-import React from "react"
+import React from "react";
 import { ReactComponent as UsersIcon } from "../../assets/icon_users.svg"
 import { ReactComponent as DolarIcon } from "../../assets/icon_dolar.svg"
 import { ContentCardEventProps } from "./interface"
@@ -20,11 +20,11 @@ const ContentCardEvent = (props: ContentCardEventProps) => {
       <GroupStyled>
         <CountInviteStyled>
           <UsersIcon />
-          <ValueStyled>{props.users}</ValueStyled>
+          {props.users ? <ValueStyled>{props.users}</ValueStyled> : <ValueStyled>0</ValueStyled>}
         </CountInviteStyled>
         <CashStyled>
           <DolarIcon />
-          <ValueStyled>R${props.price ? props.price : ""}</ValueStyled>
+          {props.price ? <ValueStyled>R${props.price}</ValueStyled> : ""}
         </CashStyled>
       </GroupStyled>
     </ContentStyled>

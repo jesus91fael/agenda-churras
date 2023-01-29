@@ -11,7 +11,6 @@ import {
   BoxStyled,
   ButtonStyled,
   ButtonInsertStyled,
-  CardStyled,
   ContentStyled,
   FormContentStyled,
   FormStyled,
@@ -20,42 +19,31 @@ import {
   InsertMeetStyled,
   LabelForm,
   SubTitleStyled,
-  ContentArrowStyled,
-} from "./styles"
+  FormControlStyled,
+} from "./styles";
+import { useForm } from "react-hook-form"
 
 const RegisterEvent = () => {
-
   const navigate = useNavigate()
 
-  const [title, setTitle] = useState("")
-  const [date, setDate] = useState("")
-  const [group, setGroup] = useState([{}])
-
-  const addNewInvite = (value: object) => {
-    const itemsGroup = Array.from(group)
-    itemsGroup.push(value)
-    setGroup(itemsGroup)
-  }
-
-  const deleteInvite = (index: any) => {
-    const itemsGroup = Array(group)
-    itemsGroup.slice(index, 1)
-    setGroup(itemsGroup)
-  }
+  const [group, setGroup] = useState<any[]>([])
 
   const [show, setShow] = useState(false)
 
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
-  const newMeet = {
-    title: title,
-    date: date,
-    group: group,
+
+  const addNewInvite = (value: any) => {
+    setGroup((prevState) => [...prevState, value])
   }
 
-  const valida = () => adicionarMeet(newMeet)
+  const deleteInvite = (index: any) => {
+    setGroup((prevState) =>
+      prevState.filter((_, prevStateIndex) => prevStateIndex !== index)
+    )
+  }
 
-  const adicionarMeet = (xMeet: object) => {
+  const AddEvent = (xMeet: object) => {
     let options = {
       method: "POST",
       headers: {
@@ -65,45 +53,54 @@ const RegisterEvent = () => {
     }
     return fetch("http://localhost:3000/meet", options)
       .then((response: any) => response.json())
-      .then(() => {        
-        navigate('/');       
+      .then(() => {
+        navigate("/")
       })
+  }
+
+  const { register, handleSubmit } = useForm()
+
+  const onSubmit = (e: any) => {
+    const values = {
+      title: e.title,
+      date: e.date,
+      group: group,
+    }
+    AddEvent(values)
   }
 
   return (
     <>
       <Header />
       <ContentStyled>
-        <ContentArrowStyled>
-          <Link to="/">
-            <Button variant="light">
-              <IconArrow />
-            </Button>
-          </Link>
-        </ContentArrowStyled>
-
-        <FormStyled onSubmit={valida}>
-          <SubTitleStyled>Cadastrar Evento</SubTitleStyled>
+        <Link to="/">
+          <Button variant="light">
+            <IconArrow />
+          </Button>
+        </Link>
+        <SubTitleStyled>Cadastrar Evento</SubTitleStyled>
+        <FormStyled onSubmit={handleSubmit(onSubmit)}>
           <FormContentStyled>
-            <LabelForm>
-              Data:
+            <FormControlStyled>
+              <LabelForm>Data:</LabelForm>
               <InputStyled
                 type="date"
-                id="text"
-                onChange={(e) => setDate(e.target.value)}
+                id="date"
+                {...register("date")}
+                required
               />
-            </LabelForm>
-            <LabelForm>
-              Título:
+            </FormControlStyled>
+            <FormControlStyled>
+              <LabelForm>Título:</LabelForm>
               <InputStyledTitle
                 placeholder="Digite um título"
                 type="text"
                 id="title"
-                onChange={(e) => setTitle(e.target.value)}
+                {...register("title")}
+                required
               />
-            </LabelForm>
+            </FormControlStyled>
           </FormContentStyled>
-
           <BoxStyled>
             <NewInvite
               onSubmit={addNewInvite}
@@ -112,22 +109,20 @@ const RegisterEvent = () => {
             />
             <BoxButtonStyled>
               <Button variant="warning" onClick={handleShow}>
-                <IconUser />
+                <IconUser /> Adicionar convidado
               </Button>
             </BoxButtonStyled>
-            <CardStyled>
-              {group &&
-                group.map((element: any, index: any) => {
-                  return (
-                    <ListInvites
-                      key={index}
-                      name={element?.name}
-                      valor={element?.valor}
-                      onDelete={() => deleteInvite(index)}
-                    />
-                  )
-                })}
-            </CardStyled>
+            {!!group.length &&
+              group.map((element: any, index: number) => {
+                return (
+                  <ListInvites
+                    key={index}
+                    name={element?.name}
+                    valor={element?.valor}
+                    onDelete={() => deleteInvite(index)}
+                  />
+                )
+              })}
           </BoxStyled>
           <InsertMeetStyled>
             <Link to="/">

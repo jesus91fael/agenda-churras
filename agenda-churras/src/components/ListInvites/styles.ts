@@ -2,39 +2,37 @@ import styled from 'styled-components'
 import Button from "react-bootstrap/Button"
 
 export const ContentListStyled = styled.div`
-  display: flex ;
-  flex-direction: column ;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center ;
+  align-items: center;
+  width: 100%;
 `
 
 export const CardStyled = styled.div`
   background-color: #FFF;
-  min-width: 588px ;
-  display: flex ;
-  flex-direction: row ;
-  justify-content: center;
-  align-items: center ;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 `
 
 export const LabelStyled = styled.label`
-  width: 100px;
   display: flex;
-  align-items: center ;
+  align-items: center;
   justify-content: flex-start;
-  flex-direction: row ;
-  margin: 0 90px;
+  flex-direction: row;
 `
 
 export const ButtonStyled = styled(Button)`
   border: none;
-  margin: 3px;
-  padding: 5px;
+  padding: 4px 6px;
   color: #fff;
-  border-radius: 5px ;
+  border-radius: 6px;
 `
 
 export const LineStyled = styled.hr`
-  width: 488px ;
-  align-items:center ;
+  width: 100%;
+  align-items:center;
 `

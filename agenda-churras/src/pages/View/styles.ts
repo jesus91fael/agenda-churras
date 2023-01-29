@@ -9,8 +9,8 @@ export const ContentStyled = styled.div`
   border: 1px solid rgb(229, 194, 49, 0.3);
   background-color: #fff;
   border-radius: 2px;
-  margin: -40px auto 0;
-  padding: 5px;
+  margin: 0 auto;
+  padding: 12px;
 `
 
 export const ContentArrowStyled = styled.div`
@@ -19,23 +19,24 @@ export const ContentArrowStyled = styled.div`
   background-color: #fff;
   padding: 0;
   margin: 0 auto;
-  justify-content: space-around;
+  justify-content: space-between;
 `
 
-export const FormStyled = styled.form`
+export const FormStyled = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100%;
 `
 
 export const SubTitleStyled = styled.h5`
   font-weight: 800;
-  padding: 5px 0;
+  padding: 4px 0;
 `
 
-export const CardStyled = styled.div`
-  width: 588px;
+export const ItemList = styled.div`
+  width: 100%;
   margin: 0 auto;
   background-color: #fff;
 `

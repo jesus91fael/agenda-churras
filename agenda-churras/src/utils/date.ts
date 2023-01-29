@@ -1,0 +1,1 @@
+  export const formattedDate = (value: string) => value.split("-").reverse().join("/")

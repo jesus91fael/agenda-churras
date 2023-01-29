@@ -4,40 +4,41 @@ import Header from "../../components/Header"
 import {
   IconStyled,
   CardAddStyled,
-  TitleButtonstyled,
+  TitleButtonStyled,
   ListCardsStyled,
-  Contentstyled,
+  ContentStyled,
   CardStyled,
   LinkStyled,
 } from "./styles"
 import { api } from "../../lib/axios"
 import ContentCardEvent from "../../components/ContentCardEvent"
+import { formattedDate } from "../../utils/date"
 
 const Home = () => {
   const [meet, setMeet] = useState([])
 
   useEffect(() => {
     api.get("meet").then((response: any) => {
-      setMeet(response.data);
+      setMeet(response.data)
     })
   }, [])
 
   return (
-    <Contentstyled>
+    <ContentStyled>
       <Header />
       <ListCardsStyled>
-        {meet &&
-          meet.map((element: any, index: any) => {
+        {!!meet.length &&
+          meet.map((element: any, index: number) => {
             return (
-              <LinkStyled to={`/evento/${element.id}`}>
-                <CardStyled key={index}>
+              <LinkStyled key={`item-${index}`} to={`/evento/${element.id}`}>
+                <CardStyled>
                   <ContentCardEvent
                     title={element.title}
-                    date={element.date.split("-").reverse().join("/")}
+                    date={formattedDate(element.date)}
                     price={parseFloat(
                       element.group
-                        .map((item: any) => item.valor)
-                        .reduce((prev: any, curr: any) => prev + curr, 0)
+                        .map((item: any) => parseInt(item.valor))
+                        .reduce((prev: number, curr: number) => prev + curr, 0)
                     )}
                     users={element.group.length}
                   />
@@ -50,11 +51,11 @@ const Home = () => {
             <IconStyled>
               <IconBBQ />
             </IconStyled>
-            <TitleButtonstyled>Adicionar Churras</TitleButtonstyled>
+            <TitleButtonStyled>Adicionar Churras</TitleButtonStyled>
           </CardAddStyled>
         </LinkStyled>
       </ListCardsStyled>
-    </Contentstyled>
+    </ContentStyled>
   )
 }
 

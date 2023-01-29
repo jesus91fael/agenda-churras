@@ -1,48 +1,48 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const ContentStyled = styled.div`
-  width: 234px;
-  height: 144px;
-`;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+`
 
-export const DateStyled = styled.div`
+export const DateStyled = styled.h6`
   font-weight: 800;
   font-size: 28px;
-`;
+`
 
-export const TitleStyled = styled.div`
-  margin-top: 8px;
+export const TitleStyled = styled.h6`
   font-size: 21px;
-  font-weight: 700 ;
-`;
+  font-weight: 700;
+`
 
 export const GroupStyled = styled.div`
-  display: flex ;
+  display: flex;
   flex-direction: row;
-  align-items:center ;
-  justify-content: space-between ;
-  margin-top: 48px ;
-`;
+  align-items:center;
+  justify-content: space-between;
+  margin-top: auto;
+`
 
 export const CountInviteStyled = styled.div`
-  display: flex ;
+  display: flex;
   flex-direction: row;
-  align-items:center ;
-  justify-content: space-between ;
-  margin-right: 91px ;
-`;
+  align-items:center;
+  justify-content: center;
+`
 
 export const ValueStyled = styled.span`
-  display: flex ;
+  display: flex;
   flex-direction: row;
-  align-items:center ;
-  justify-content: space-between ;
-  margin-left: 11px ;
-`;
+  align-items:center;
+  justify-content: space-between;
+  margin-left: 12px;
+`
 
 export const CashStyled = styled.div`
-  display: flex ;
+  display: flex;
   flex-direction: row;
-  align-items:center ;
-  justify-content: space-between ;
-`;
+  align-items:center;
+  justify-content: space-between;
+`

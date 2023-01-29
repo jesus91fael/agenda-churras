@@ -1,6 +1,6 @@
-import React from "react";
+import React from "react"
 import { BrowserRouter, Route, Routes as Router } from "react-router-dom"
-import EditEvent from "../pages/EditEvent";
+import EditEvent from "../pages/EditEvent"
 import Home from "../pages/Home"
 import RegisterEvent from "../pages/RegisterEvent"
 import View from "../pages/View"
@@ -18,4 +18,4 @@ const Routes: React.FC = () => {
   )
 }
 
-export default Routes
+export default Routes;

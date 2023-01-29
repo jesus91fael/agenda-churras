@@ -1,12 +1,12 @@
 import React from "react"
-import { HeaderStyled, BackImagestyled, TitleStyled } from "./styles"
+import { HeaderStyled, BackImageStyled } from "./styles"
 
 const Header = () => {
   return (
     <HeaderStyled>
-      <BackImagestyled>
-        <TitleStyled>Agenda de Churras</TitleStyled>
-      </BackImagestyled>
+      <BackImageStyled>
+        <h1>Agenda de Churras</h1>
+      </BackImageStyled>
     </HeaderStyled>
   )
 }

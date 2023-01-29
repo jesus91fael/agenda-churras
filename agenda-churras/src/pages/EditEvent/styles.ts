@@ -10,7 +10,7 @@ export const ContentStyled = styled.div`
   border: 1px solid rgb(229, 194, 49, 0.3);
   background-color: #fff;
   border-radius: 2px;
-  margin: -40px auto 0;
+  margin: 0 auto;
   padding: 10px;
 `
 
