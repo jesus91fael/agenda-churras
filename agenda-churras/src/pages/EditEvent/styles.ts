@@ -29,6 +29,12 @@ export const FormStyled = styled.form`
   align-items: center;
 `
 
+export const FormControlStyled = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+`
+
 export const SubTitleStyled = styled.h3`
   font-weight: 800;
   padding: 25px 0;
@@ -70,13 +76,11 @@ export const BoxButtonStyled = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding: 0 10px;
-`
+  margin: 24px 0;
 
-export const CardStyled = styled.div`
-  width: 588px;
-  margin: 0 auto;
-  background-color: #fff;
+  button {
+    width: 100%;
+  }
 `
 
 export const InsertMeetStyled = styled.div`
@@ -100,6 +104,9 @@ export const ButtonStyled = styled(Button)`
   padding: 5px;
   color: #000;
   border-radius: 5px;
+  button {
+    width: 100%;
+  }
 `
 
 export const FormContentStyled = styled.div`

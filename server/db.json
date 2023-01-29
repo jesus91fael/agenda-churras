@@ -18,7 +18,16 @@
     {
       "title": "Niver Tião",
       "date": "2023-01-24",
-      "group": [],
+      "group": [
+        {
+          "valor": "1",
+          "name": "rafa"
+        },
+        {
+          "valor": "12",
+          "name": "re"
+        }
+      ],
       "id": 2
     },
     {
@@ -28,14 +37,6 @@
         {
           "valor": "12",
           "name": "Rafa"
-        },
-        {
-          "valor": "12",
-          "name": "tes"
-        },
-        {
-          "valor": "13",
-          "name": "Re"
         }
       ],
       "id": 4

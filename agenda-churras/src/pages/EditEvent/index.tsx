@@ -11,7 +11,6 @@ import {
   BoxStyled,
   ButtonStyled,
   ButtonInsertStyled,
-  CardStyled,
   ContentStyled,
   FormContentStyled,
   FormStyled,
@@ -21,6 +20,7 @@ import {
   LabelForm,
   SubTitleStyled,
   ContentArrowStyled,
+  FormControlStyled,
 } from "./styles";
 import { useForm } from "react-hook-form"
 import { PeopleProps } from "./interface"
@@ -44,9 +44,9 @@ const EditEvent = () => {
   };
 
   const deleteInvite = (index: number) => {
-    const itemsGroup = Array(group)
-    itemsGroup.slice(index, 1)
-    setGroup(itemsGroup)
+    setGroup((prevState) =>
+      prevState.filter((_, prevStateIndex) => prevStateIndex !== index)
+    )
   };
 
   let { id } = useParams()
@@ -87,7 +87,7 @@ const EditEvent = () => {
     adicionarMeet(values)
   }
   const transformDate = people?.date?.toString()
-
+console.log('group', people?.group)
   return (
     <>
       <Header />
@@ -99,27 +99,30 @@ const EditEvent = () => {
             </Button>
           </Link>
         </ContentArrowStyled>
+        <SubTitleStyled>Editar Evento</SubTitleStyled>
         <FormStyled onSubmit={handleSubmit(onSubmit)}>
-          <SubTitleStyled>Cadastrar Evento</SubTitleStyled>
-          <FormContentStyled>
-            <LabelForm>
-              Data:
+          <FormContentStyled>          
+            <FormControlStyled>
+              <LabelForm>Data:</LabelForm>
               <InputStyled
                 type="date"
-                id="text"
+                id="date"
                 {...register("date")}
+                required          
                 defaultValue={transformDate}
               />
-            </LabelForm>
-            <LabelForm>
-              Título:
+            </FormControlStyled>
+            <FormControlStyled>
+              <LabelForm>Título:</LabelForm>
               <InputStyledTitle
+                placeholder="Digite um título"
                 type="text"
                 id="title"
                 {...register("title")}
-                defaultValue={people?.title}
+                defaultValue={transformDate}
+                required
               />
-            </LabelForm>
+            </FormControlStyled>
           </FormContentStyled>
 
           <BoxStyled>
@@ -133,7 +136,6 @@ const EditEvent = () => {
                 <IconUser />
               </Button>
             </BoxButtonStyled>
-            <CardStyled>
               {group &&
                 group.map((element: any, index: number) => {
                   return (
@@ -145,7 +147,6 @@ const EditEvent = () => {
                     />
                   )
                 })}
-            </CardStyled>
           </BoxStyled>
           <InsertMeetStyled>
             <Link to="/">
