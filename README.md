@@ -5,7 +5,7 @@
 
 `json-server --watch db.json`
 
-### Passo 2: em outro terminal entra na pasta "agenda-churas","rode" o seguinte comando:
+### Passo 2: em outro terminal entra na pasta "agenda-churras","rode" o seguinte comando:
 
 `yarn`
 
